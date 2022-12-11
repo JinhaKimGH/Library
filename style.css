@@ -2,6 +2,7 @@
     --grey: #f0eef1;
     --black: #050505;
     --shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+    --light-green: #9fff9c;
 }
 
 *{
@@ -48,6 +49,62 @@ body{
     font-family: 'Poppins', sans-serif;
 }
 
+
+#container{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+
+}
+
+form{
+    border-radius: 12px;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+    width: 75%;
+    height: auto;
+    margin-left: 2vw;
+    margin-right: 2vw;
+    margin-bottom: 2vh;
+    text-align: center;
+}
+
+.book{
+    border-radius: 12px;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+    width: 75%;
+    margin-left: 2vw;
+    margin-right: 2vw;
+    margin-bottom: 2vh;
+    height: auto;
+    text-align: center;
+}
+
+.info{
+    margin-left: 2vw;
+    margin-right: 1vw;
+    margin-top: 3vh;
+}
+
+input{
+    margin-left: 2vw;
+    margin-right: 1vw;
+    margin-top: 2vh;
+}
+
+.input{
+    padding-left: 1vw;
+    padding-bottom: 1vh;
+    padding-top: 1vh;
+    width: 75%;
+    border: none;
+    border-radius: 12px;
+}
+
+.checkbox{
+    padding: 1vmin;
+    border-style: none;
+    border-radius: 8px;
+}
+
 #new_book{
     font-size: 24px;
     font-weight: 600;
@@ -57,4 +114,20 @@ body{
 .new_book{
     text-align: center;
     margin-top: 3vh;
+}
+
+.readbtn{
+    background-color: var(--light-green);
+    margin-top: 7.5vh;
+    margin-bottom: 1.5vh;
+    padding-left: 40%;
+    padding-right: 40%;
+}
+
+.submit{
+    background-color: var(--light-green);
+    margin-top: 1.5vh;
+    margin-bottom: 1.5vh;
+    padding-left: 40%;
+    padding-right: 40%;
 }

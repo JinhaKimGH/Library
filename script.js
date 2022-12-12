@@ -26,7 +26,11 @@ class Library {
     }
 
     getBook(title){
-        return this.books.find((book) => book.title === title);
+        for(let i = 0; i < this.books.length; i++){
+            if (this.books[i].title === title){
+                return i;
+            }
+        }
     }
 
     isInLibrary(newBook){
@@ -36,6 +40,7 @@ class Library {
     addToDom(newBook){
         let book = document.createElement('div');
         book.className = 'book';
+        book.id = 'book' + newBook.title;
 
         let container = document.getElementById('container');
         container.appendChild(book);
@@ -54,8 +59,8 @@ class Library {
 
         const read = document.createElement('button');
         read.className = "readbtn";
-        read.value = library.books.length;
-        read.id = "readbtn" + library.books.length;
+        read.value = newBook.title;
+        read.id = "readbtn" + newBook.title;
 
         if(newBook.read === true){
             read.style.backgroundColor = "#9fff9c";
@@ -66,13 +71,29 @@ class Library {
             read.innerHTML = "Unread";
         }
 
+        const remove = document.createElement('button');
+        remove.className = "remove";
+        remove.innerHTML = "Remove";
+        remove.id = "remove" + newBook.title;
+        remove.value = newBook.title;
+
+
+
         read.addEventListener("click", readUnread);
+        remove.addEventListener("click", remove_book);
         book.appendChild(title);
         book.appendChild(author);
         book.appendChild(pages);
         book.appendChild(read);
+        book.appendChild(remove);
 
     }
+}
+
+function remove_book(event){
+    library.removeBook(event.target.value);
+    const book = document.getElementById("book" + event.target.value);
+    book.remove();
 }
 
 function readUnread(event){
@@ -81,13 +102,13 @@ function readUnread(event){
     if (read.innerHTML === "Read"){
         read.innerHTML = "Unread";
         read.style.backgroundColor = '#ff9c9c';
-        library.books[event.target.value - 1].read = false;
+        library.books[library.getBook(event.target.value)].read = false;
     } 
 
     else{
         read.style.backgroundColor = "#9fff9c";
         read.innerHTML = "Read";
-        library.books[event.target.value - 1].read = true;
+        library.books[library.getBook(event.target.value)].read = true;
     }
 }
 
@@ -100,12 +121,18 @@ function submitForm(event){
     let read = document.querySelector('#read').checked;
 
     if(title === "" || author === "" || pages === ""){
-        return
+        document.querySelector('#new_book').disabled = false;
+        alert("Fill out the whole form.")
+        event.preventDefault();
+        return;
     }
 
     let tempBook = new Book(document.querySelector('#title').value, document.querySelector('#author').value, document.querySelector('#pages').value, document.querySelector('#read').checked);
 
     if (library.isInLibrary(tempBook)){
+        document.querySelector('#new_book').disabled = false;
+        alert("Can't add duplicate books")
+        event.preventDefault();
         return;
     }
     library.addBook(tempBook);

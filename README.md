@@ -2,7 +2,7 @@
 
 This project simulates a personal library.
 
-Books are displayed on a page on their own card.
+Books and their basic information are displayed on a page on their own card.
 
 ## Features
 

@@ -11,3 +11,7 @@ New books can be added to the display, which can be specified with: author, titl
 Books can be removed from the library with a button on the book's card.
 
 A book's `read` status can also be changed with a button on the book's card.
+
+## Live Preview
+
+[Link to Live Preview](jinhakimgh.github.io/Library)

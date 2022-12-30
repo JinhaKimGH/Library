@@ -14,4 +14,4 @@ A book's `read` status can also be changed with a button on the book's card.
 
 ## Live Preview
 
-[Link to Live Preview](jinhakimgh.github.io/Library)
+[Link to Live Preview](https://jinhakimgh.github.io/Library)

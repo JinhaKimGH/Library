@@ -1,6 +1,6 @@
 # Library App
 
-This project simulates a personal library.
+This project simulates a personal library to store your books.
 
 Books and their basic information are displayed on a page on their own card.
 
